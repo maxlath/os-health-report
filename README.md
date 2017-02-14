@@ -37,7 +37,7 @@ You can [do the same within Node](http://stackoverflow.com/a/21961005/3324977) u
 
 If for some reason, you prefer using HTTP, override the config by setting a different protocol in `./config/local.js`
 ```sh
-echo "module.exports = { protocol: 'http' } > ./config/local.js"
+echo "module.exports = { protocol: 'http' }" > ./config/local.js
 ```
 
 ## See also
