@@ -1,0 +1,26 @@
+{
+  "name": "os-health-report",
+  "version": "1.0.0",
+  "description": "A micro server reporting simple information on its host machine: % used memory, % used disk, % used CPU",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "supervisor -w index.js,lib,config index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "os",
+    "health",
+    "report"
+  ],
+  "author": "maxlath",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "config": "^1.25.1",
+    "diskspace": "^1.0.3"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}
