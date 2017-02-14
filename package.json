@@ -4,6 +4,7 @@
   "description": "A micro server reporting simple information on its host machine: % used memory, % used disk, % used CPU",
   "main": "index.js",
   "scripts": {
+    "postinstall": "./scripts/postinstall",
     "start": "node index.js",
     "watch": "supervisor -w index.js,lib,config index.js",
     "add-to-systemd": "./scripts/add_to_systemd",
