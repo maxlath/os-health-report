@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# env "PATH=$PATH" alows to access add-to-systemd in sudo mode
+sudo env "PATH=$PATH" add-to-systemd \
+   --env FORCE_COLOR=true \
+   os-health-report "$(which node) $(pwd)/index.js"

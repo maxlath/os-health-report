@@ -14,5 +14,11 @@ npm start
 curl http://localhost:1112
 ```
 
+## Add to Systemd
+```sh
+# Uses sudo so you will be prompt for your password
+npm run add-to-systemd
+```
+
 ## See also
 * [os-info-server](https://github.com/bahmutov/os-info-server)
