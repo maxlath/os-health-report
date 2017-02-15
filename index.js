@@ -1,4 +1,5 @@
-const { protocol, port } = require('config')
+const { protocol, port, heapSnaphot } = require('config')
+if (heapSnaphot.enabled) require('./lib/heap_snapshot')(heapSnaphot.periodicity)
 // uses HTTPS by default
 proto = require(protocol)
 const fs = require('fs')

@@ -24,6 +24,8 @@
     "diskspace": "^1.0.3"
   },
   "devDependencies": {
+    "heapdump": "^0.3.7",
+    "memory-usage": "^1.2.1",
     "supervisor": "^0.12.0"
   }
 }

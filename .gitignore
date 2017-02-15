@@ -1,4 +1,5 @@
 node_modules
 keys
 config/local.js
+heapsnapshot
 
