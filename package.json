@@ -8,6 +8,7 @@
     "start": "node index.js",
     "watch": "supervisor -w index.js,lib,config index.js",
     "add-to-systemd": "./scripts/add_to_systemd",
+    "update-toc": "doctoc README.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "add-to-systemd": "^1.2.0",
+    "doctoc": "^1.2.0",
     "supervisor": "^0.12.0"
   }
 }

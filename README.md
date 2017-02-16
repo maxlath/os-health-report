@@ -6,6 +6,21 @@ A micro server reporting simple information on its (Linux) host machine:
 ```
 Those are fractions of the total resources available.
 
+## Summary
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Installation](#installation)
+- [Start](#start)
+- [API](#api)
+  - [Get memory, CPU and disk used fraction](#get-memory-cpu-and-disk-used-fraction)
+  - [Also get systemd services statuses](#also-get-systemd-services-statuses)
+- [Use HTTP instead of HTTPS](#use-http-instead-of-https)
+- [See also](#see-also)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Installation
 ```sh
 git clone https://github.com/maxlath/os-health-report.git
@@ -29,6 +44,34 @@ sudo systemctl start os-health-report
 # Check that everything is fine
 sudo systemctl start os-health-report
 curl -k https://localhost:1112
+```
+
+## API
+### Get memory, CPU and disk used fraction
+```sh
+curl -k https://localhost:1112
+```
+output:
+```json
+{ "memory_used": 0.81, "disk_used": 0.49, "cpu_used": 0.13 }
+```
+
+### Also get systemd services statuses
+```sh
+curl -k https://localhost:1112?services=couchdb|inventaire|nginx
+```
+output:
+```json
+{
+  "memory_used": 0.35,
+  "disk_used": 0.48,
+  "cpu_used": 0.04,
+  "services": {
+    "couchdb": "active",
+    "inventaire": "inactive",
+    "nginx": "active"
+  }
+}
 ```
 
 ## Use HTTP instead of HTTPS
