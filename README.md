@@ -56,6 +56,8 @@ output:
 { "memory_used": 0.81, "disk_used": 0.49, "cpu_used": 0.13 }
 ```
 
+`cpu_used` is the 15 minutes [CPU average load](http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages).
+
 ### Also get systemd services statuses
 ```sh
 curl -k https://localhost:1112?services=couchdb|inventaire|nginx
