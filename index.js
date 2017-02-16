@@ -4,13 +4,26 @@ proto = require(protocol)
 const fs = require('fs')
 const { green, grey } = require('chalk')
 const osReport = require('./lib/os_report')
+const qs = require('querystring')
 
 const server = function (req, res) {
+  const services = parseServices(req.url)
+
   res.setHeader('Content-Type', 'application/json; charset=utf-8')
 
-  osReport()
+  osReport(services)
   .then(formatData(res))
   .catch(handleError(res))
+}
+
+const parseServices = function (url) {
+  const queryString = url.split('?')[1]
+  var services
+  if (queryString) {
+    services = qs.parse(queryString).services
+    if (services) services = services.split('|')
+  }
+  return services
 }
 
 const formatData = function (res) {
