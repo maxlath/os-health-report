@@ -28,8 +28,9 @@ const parseServices = function (url) {
 
 const formatData = function (res) {
   return function (data) {
-    console.log(grey(new Date().toISOString()), data)
-    res.end(JSON.stringify(data))
+    const stringifiedData = JSON.stringify(data)
+    console.log(grey(new Date().toISOString()), stringifiedData)
+    res.end(stringifiedData)
   }
 }
 
