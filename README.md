@@ -44,7 +44,7 @@ curl -k https://localhost:1112
 npm run add-to-systemd
 sudo systemctl start os-health-report
 # Check that everything is fine
-sudo systemctl start os-health-report
+sudo systemctl status os-health-report
 curl -k https://localhost:1112
 ```
 
