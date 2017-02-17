@@ -17,6 +17,8 @@ Those are fractions of the total resources available.
   - [Get memory, CPU and disk used fraction](#get-memory-cpu-and-disk-used-fraction)
   - [Also get systemd services statuses](#also-get-systemd-services-statuses)
 - [Use HTTP instead of HTTPS](#use-http-instead-of-https)
+- [Documentation](#documentation)
+  - [CPU](#cpu)
 - [See also](#see-also)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -84,6 +86,11 @@ If for some reason, you prefer using HTTP, override the config by setting a diff
 ```sh
 echo "module.exports = { protocol: 'http' }" > ./config/local.js
 ```
+
+## Documentation
+### CPU
+* [Understand load average](http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages)
+* [Restricting process CPU usage using nice, cpulimit, and cgroups](http://blog.scoutapp.com/articles/2014/11/04/restricting-process-cpu-usage-using-nice-cpulimit-and-cgroups)
 
 ## See also
 * [os-info-server](https://github.com/bahmutov/os-info-server)
