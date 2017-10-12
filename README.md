@@ -62,7 +62,7 @@ output:
 
 ### Also get systemd services statuses
 ```sh
-curl -k https://localhost:1112?services=couchdb|inventaire|nginx
+curl -k 'https://localhost:1112?services=couchdb|inventaire|nginx'
 ```
 output:
 ```json
