@@ -7,23 +7,24 @@ const osReport = require('./lib/os_report')
 const qs = require('querystring')
 
 const server = function (req, res) {
-  const services = parseServices(req.url)
+  const queryData = parseQuery(req.url)
 
   res.setHeader('Content-Type', 'application/json; charset=utf-8')
 
-  osReport(services)
+  osReport(queryData)
   .then(formatData(res))
   .catch(handleError(res))
 }
 
-const parseServices = function (url) {
+const parseQuery = function (url) {
   const queryString = url.split('?')[1]
-  var services
+  const data = {}
   if (queryString) {
-    services = qs.parse(queryString).services
-    if (services) services = services.split('|')
+    const { services, docker } = qs.parse(queryString)
+    if (services) data.services = services.split('|')
+    if (docker) data.dockerContainers = docker.split('|')
   }
-  return services
+  return data
 }
 
 const formatData = function (res) {

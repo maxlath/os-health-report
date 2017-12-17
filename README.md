@@ -15,7 +15,8 @@ Those are fractions of the total resources available.
 - [Start](#start)
 - [API](#api)
   - [Get memory, CPU and disk used fraction](#get-memory-cpu-and-disk-used-fraction)
-  - [Also get systemd services statuses](#also-get-systemd-services-statuses)
+  - [Get systemd services statuses](#get-systemd-services-statuses)
+  - [Get docker containers statuses](#get-docker-containers-statuses)
 - [Use HTTP instead of HTTPS](#use-http-instead-of-https)
 - [Documentation](#documentation)
   - [CPU](#cpu)
@@ -60,7 +61,7 @@ output:
 
 `cpu_used` is the 15 minutes [CPU average load](http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages).
 
-### Also get systemd services statuses
+### Get systemd services statuses
 ```sh
 curl -k 'https://localhost:1112?services=couchdb|inventaire|nginx'
 ```
@@ -74,6 +75,23 @@ output:
     "couchdb": "active",
     "inventaire": "inactive",
     "nginx": "active"
+  }
+}
+```
+
+### Get docker containers statuses
+```sh
+curl -k 'https://localhost:1112?docker=585c7be23ac3|7ea426b95a78'
+```
+output:
+```json
+{
+  "memory_used": 0.35,
+  "disk_used": 0.48,
+  "cpu_used": 0.04,
+  "docker": {
+    "585c7be23ac3": "active",
+    "7ea426b95a78": "inactive"
   }
 }
 ```
