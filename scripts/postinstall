@@ -4,6 +4,6 @@ echo "Starting to create self-signed keys, you may let all the following fields 
 mkdir -p ./keys
 cd ./keys
 # Create self-signed keys to use TLS
-openssl req -x509 -sha256 -nodes -days 1095 -newkey rsa:2048 -keyout self-signed.key -out self-signed.crt -subj "/C=zz/ST=zz/L=zz/O=zz/OU=zz/CN=."
+openssl req -x509 -sha256 -nodes -days 100000 -newkey rsa:2048 -keyout self-signed.key -out self-signed.crt -subj "/C=zz/ST=zz/L=zz/O=zz/OU=zz/CN=."
 
 echo "Done with creating self-signed keys"
