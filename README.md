@@ -100,7 +100,10 @@ output:
 
 ## Use HTTP instead of HTTPS
 The server uses self-signed certificates to run with HTTPS, thus the `-k` option passed to curl so that it ignores the TLS error it will get.
-You can [do the same within Node](http://stackoverflow.com/a/21961005/3324977) using `process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'`, or by disabling it per request: for instance with the [request](https://www.npmjs.com/package/request) lib, it can be done by passing a flag: `request({ method, url, rejectUnauthorized: false })`.
+You can [do the same within Node](http://stackoverflow.com/a/21961005/3324977) using `process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'`, or by disabling it per request: for instance with the [request](https://www.npmjs.com/package/request) lib, it can be done by passing a flag:
+```js
+request({ method, url, rejectUnauthorized: false })
+```
 
 If for some reason, you prefer using HTTP, override the config by setting a different protocol in `./config/local.js`
 ```sh
