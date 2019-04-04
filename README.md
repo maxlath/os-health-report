@@ -81,7 +81,7 @@ output:
 
 ### Get docker containers statuses
 ```sh
-curl -k 'https://localhost:1112?docker=585c7be23ac3|7ea426b95a78'
+curl -k 'https://localhost:1112?docker=elasticsearch|lyrasis/blazegraph|585c7be23ac3|7ea426b95a78'
 ```
 output:
 ```json
@@ -90,6 +90,8 @@ output:
   "disk_used": 0.48,
   "cpu_used": 0.04,
   "docker": {
+    "elasticsearch": "active",
+    "lyrasis/blazegraph": "inactive",
     "585c7be23ac3": "active",
     "7ea426b95a78": "inactive"
   }
