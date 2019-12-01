@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 echo "Starting to create self-signed keys, you may let all the following fields blank"
 mkdir -p ./keys
