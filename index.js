@@ -2,7 +2,7 @@ const { protocol, port } = require('config')
 // uses HTTPS by default
 proto = require(protocol)
 const fs = require('fs')
-const { green, grey } = require('chalk')
+const { green, grey } = require('tiny-chalk')
 const osReport = require('./lib/os_report')
 const qs = require('querystring')
 
