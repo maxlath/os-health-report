@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Starting to create self-signed keys, you may let all the following fields blank"
+echo "Starting to create self-signed keys"
 mkdir -p ./keys
 cd ./keys
 # Create self-signed keys to use TLS
