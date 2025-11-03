@@ -22,7 +22,7 @@
   "author": "maxlath",
   "license": "MIT",
   "dependencies": {
-    "add-to-systemd": "^1.2.0",
+    "add-to-systemd": "^2.2.0",
     "config": "^4.1.1",
     "tiny-chalk": "^3.0.2"
   },
