@@ -1,6 +1,7 @@
 {
   "name": "os-health-report",
   "version": "1.0.0",
+  "type": "module",
   "description": "A micro server reporting simple information on its host machine: % used memory, % used disk, % used CPU",
   "main": "index.js",
   "scripts": {
@@ -20,8 +21,8 @@
   "license": "MIT",
   "dependencies": {
     "add-to-systemd": "^1.2.0",
-    "config": "^3.3.12",
-    "tiny-chalk": "^2.0.0"
+    "config": "^4.1.1",
+    "tiny-chalk": "^3.0.2"
   },
   "devDependencies": {
     "doctoc": "^1.2.0",

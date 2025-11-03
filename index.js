@@ -1,12 +1,15 @@
-const { protocol, port } = require('config')
-// uses HTTPS by default
-proto = require(protocol)
-const fs = require('fs')
-const { green, grey } = require('tiny-chalk')
-const osReport = require('./lib/os_report')
-const qs = require('querystring')
+import fs from 'node:fs'
+import http from 'node:http'
+import https from 'node:https'
+import qs from 'node:querystring'
+import config from 'config'
+import { green, grey } from 'tiny-chalk'
+import { osReport } from './lib/os_report.js'
 
-const server = (req, res) => {
+const { protocol, port } = config
+const proto = protocol === 'http' ? http : https
+
+function server (req, res) {
   const queryData = parseQuery(req.url)
 
   res.setHeader('Content-Type', 'application/json; charset=utf-8')
@@ -16,7 +19,7 @@ const server = (req, res) => {
   .catch(handleError(res))
 }
 
-const parseQuery = url => {
+function parseQuery (url) {
   const queryString = url.split('?')[1]
   const data = {}
   if (queryString) {
@@ -44,7 +47,7 @@ const args = []
 if (protocol === 'https') {
   const options = {
     key: fs.readFileSync('./keys/self-signed.key'),
-    cert: fs.readFileSync('./keys/self-signed.crt')
+    cert: fs.readFileSync('./keys/self-signed.crt'),
   }
   args.push(options)
 }

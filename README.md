@@ -107,7 +107,7 @@ request({ method, url, rejectUnauthorized: false })
 
 If for some reason, you prefer using HTTP, override the config by setting a different protocol in `./config/local.js`
 ```sh
-echo "module.exports = { protocol: 'http' }" > ./config/local.js
+echo "export default { protocol: 'http' }" > ./config/local.js
 ```
 
 ## Documentation
