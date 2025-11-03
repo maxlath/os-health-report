@@ -2,7 +2,7 @@
 
 A micro server reporting simple information on its (Linux) host machine:
 ```json
-{ "memory_used": 0.81, "disk_used": 0.49, "cpu_used": 0.13 }
+{ "memory_used": 0.81, "cpu_used": 0.13, "disks_used": { "/": 0.88 }, }
 ```
 Those are fractions of the total resources available.
 
@@ -56,7 +56,12 @@ curl -k https://localhost:1112
 ```
 output:
 ```json
-{ "memory_used": 0.81, "disk_used": 0.49, "cpu_used": 0.13 }
+{
+  "memory_used": 0.84,
+  "cpu_used": 0.2,
+  "disks_used": { "/": 0.88 }
+  ]
+}
 ```
 
 `cpu_used` is the 15 minutes [CPU average load](http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages).
@@ -69,8 +74,8 @@ output:
 ```json
 {
   "memory_used": 0.35,
-  "disk_used": 0.48,
   "cpu_used": 0.04,
+  "disks_used": { "/": 0.88 },
   "services": {
     "couchdb": "active",
     "inventaire": "inactive",
@@ -87,8 +92,8 @@ output:
 ```json
 {
   "memory_used": 0.35,
-  "disk_used": 0.48,
   "cpu_used": 0.04,
+  "disks_used": { "/": 0.88 },
   "docker": {
     "elasticsearch": "active",
     "lyrasis/blazegraph": "inactive",
@@ -106,8 +111,18 @@ request({ method, url, rejectUnauthorized: false })
 ```
 
 If for some reason, you prefer using HTTP, override the config by setting a different protocol in `./config/local.js`
-```sh
-echo "export default { protocol: 'http' }" > ./config/local.js
+```js
+{
+  protocol: 'http'
+}
+```
+
+## Customize disks to check
+In `./config/local.js`, set
+```js
+{
+  disksMountPaths: [ '/', '/storage' ]
+}
 ```
 
 ## Documentation
