@@ -5,12 +5,14 @@
   "description": "A micro server reporting simple information on its host machine: % used memory, % used disk, % used CPU",
   "main": "index.js",
   "scripts": {
+    "add-to-systemd": "./scripts/add_to_systemd",
+    "lint-fix": "eslint --fix",
+    "lint": "eslint",
     "postinstall": "./scripts/postinstall",
     "start": "node index.js",
-    "watch": "supervisor -w index.js,lib,config index.js",
-    "add-to-systemd": "./scripts/add_to_systemd",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "update-toc": "doctoc README.md",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "supervisor -w index.js,lib,config index.js"
   },
   "keywords": [
     "os",
@@ -25,7 +27,10 @@
     "tiny-chalk": "^3.0.2"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.5.0",
     "doctoc": "^1.2.0",
+    "eslint": "^9.39.0",
+    "eslint-plugin-import-x": "^4.16.1",
     "supervisor": "^0.12.0"
   }
 }
