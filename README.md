@@ -132,3 +132,4 @@ In `./config/local.js`, set
 
 ## See also
 * [os-info-server](https://github.com/bahmutov/os-info-server)
+* [node exporter](https://github.com/prometheus/node_exporter)
